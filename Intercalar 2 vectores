@@ -1,0 +1,74 @@
+#include "stdafx.h"
+#include <iostream>
+#define Max 50
+using namespace std;
+//Definicion de funciones
+void Cargar(int V[], int n)
+{	
+	cout<<"Ingrese los datos numericos del vector"<<endl;
+	for(int i=0;i<n;i++)
+	{	cout<<"Vec""["<<i<<"]=";
+	cin>>V[i];
+	}
+}
+void Mostrar(int vec[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout << vec[i] << " "<<endl;
+	}
+}
+void Intercalar(int V[],int v1[],int v2[], int n1, int n2)
+{	int N=n1+n2;
+	bool flag=false;
+	if(n2>n1) 
+	{
+		flag=true;  
+	}
+int p;
+p=0;
+	for(int i=0;i<n1;i++) 
+	{
+		V[p]=v1[i];
+		p=p+2;
+	}
+	if(flag==true){ //En caso de que el vector 2 tenga mas elementos que el 1//
+	 p=1;
+	for(int j=0;j<n2;j++) 
+	{
+		V[p]=v2[j];	
+		if(n1>j+1)// Se comrpueba si el numero de elementos de de Vec1 es mayor a la cantidad de elementos de Vec2 insertados en el Vecfinal//
+		{p=p+2;} // Recorremos 2 posiciones//
+		else{p=p+1;}//De lo contrario solo recorre una posicion//
+	}
+	} 
+	else { p=1;      // Si el vector 2 tiene la misma o menor cantidad de elementos que vec1
+	for(int j=0;j<n2+1;j++)
+	  {
+		V[p]=v2[j];	
+			p=p+2;
+	  }
+    }
+// Mostramos el vector resultante
+	for(int i=0;i<N;i++)
+	{  
+		cout << V[i] << " ";}
+	}
+	int main()
+	{ int V[Max],vec1[Max], vec2[Max];
+	  int n1;
+	  int n2;
+		cout<<"Cantidad de elementos del vector 1"<<endl;
+		cin>>n;
+	    Cargar(vec1,n1);
+	    Mostrar(vec1,n1);
+	    cout<<"Cantidad de elementos del vector 2"<<endl;
+		cin>>n1;
+		Cargar(vec2,n2);
+		Mostrar(vec2,n2);
+		cout<<"EL vector resultante es"<<endl;
+		Intercalar(V,vec1,vec2,n1,n2);
+	    
+      system("pause>null");
+	return 0;
+}
