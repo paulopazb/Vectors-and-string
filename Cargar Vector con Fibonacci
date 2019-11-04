@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include <iostream>
+
+#define MAX 50
+using namespace std;
+
+int fibo( int n);
+void Cargar(int Vec[],int n);
+void Mostrar(int Vec[],int n);
+
+
+int main()
+{	int n;
+
+
+int Vec[MAX];
+	cout<<"Digite el numero de fibonaccis que quiere que tenga el vector"<<endl;
+	cin>>n;
+	Cargar(Vec,n);
+	Mostrar(Vec,n);
+	system("pause>null");
+	return 0;
+}
+int fibo( int n) //4
+{
+	int fibo = 0, a = 0, b = 1, k =1;
+	while (k < n) 
+	{
+		fibo = a + b; 
+		b = a;    
+		a = fibo; 
+		k++;   
+		
+	}
+	return fibo;
+
+}
+void Cargar(int Vec[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		Vec[i]=fibo(i+1);
+	}
+
+}
+
+void Mostrar(int Vec[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<Vec[i]<<""<<endl;
+	}
+}
+
