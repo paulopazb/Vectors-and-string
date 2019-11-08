@@ -21,6 +21,7 @@ int Vec[MAX];
 	system("pause>null");
 	return 0;
 }
+//usando el ciclo while//
 int fibo( int n) //4
 {
 	int fibo = 0, a = 0, b = 1, k =1;
@@ -35,6 +36,19 @@ int fibo( int n) //4
 	return fibo;
 
 }
+// Usando el ciclo for//
+/* int fibo(int n)
+{
+int fibo=0, a=0,b=1;
+ for(int i=1;i<=n;i++)
+ {
+ 	fibo=a+b;
+	b=a;
+	a=fibo;
+ }
+return fibo;
+}*/
+
 void Cargar(int Vec[],int n)
 {
 	for(int i=0;i<n;i++)
