@@ -1,0 +1,78 @@
+#include "stdafx.h"
+#include<iostream>
+
+#define Max 50
+using namespace std;
+
+
+void Cargar(int vec[], int n);
+void Mostrar(int vec[],int n);
+void Sumar(int vecf[],int vec1[],int vec2[],int n1,int n2);
+
+int main() {
+	int vec1[Max],n1,vec2[Max],n2,vecf[Max];
+	 int N;
+	cout<<"Ingrese el numero de elementos del vector 1"<<endl;
+	cin>>n1;
+	Cargar(vec1,n1);
+	cout<<"Ingrese el numero de elementos del vector 2 "<<endl;
+	cin>>n2;
+    Cargar(vec2,n2);
+	Sumar(vecf,vec1,vec2,n1,n2);
+	
+	if(n1>n2)
+	{N=n1;}
+	else{N=n2;}
+	Mostrar(vecf,N);
+	system("pause>null");
+	return 0;
+}
+
+void Cargar(int vec[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Vec["<<i<<"]=";
+		cin>>vec[i];
+	}
+
+}
+void Mostrar(int vec[],int n)
+{
+for(int i=0;i<n;i++)
+	{
+		cout<<vec[i]<<" ";
+	}
+}
+void Sumar(int vecf[],int vec1[],int vec2[],int n1,int n2)
+{
+	if(n1==n2)
+	{
+		for(int i=0,j=0;i<n1,j<n2;i++,j++)
+	{
+		vecf[i]=vec1[i]+vec2[j];
+	}
+	
+	}else{ 
+		if(n1>n2)
+		{
+			for(int i=0;i<n2;i++)
+			{
+			 vecf[i]=vec1[i]+vec2[i];
+			}
+			for(int i=n2;i<n1;i++)
+			{
+			 vecf[i]=vec1[i]+0;
+			}
+		}else{
+			for(int i=0;i<n1;i++)
+			{
+			 vecf[i]=vec1[i]+vec2[i];
+			}
+			for(int i=n1;i<n2;i++)
+			{
+			 vecf[i]=vec2[i]+0;
+			}	
+		}
+	}
+}
