@@ -1,0 +1,58 @@
+#include "stdafx.h"
+#include<iostream>
+#include <conio.h>
+#define Max 50
+using namespace std;
+
+
+void Cargar(int vec[], int n);
+void Mostrar(int vec[],int n);
+void BubbleSort(int vec[],int n);
+
+int main() {
+	int vec[Max],n;
+	cout<<"Ingrese el numero de elementos del vector"<<endl;
+	cin>>n;
+	Cargar(vec,n);
+	BubbleSort(vec,n);
+	Mostrar(vec,n);
+	
+
+	system("pause>null");
+	return 0;
+}
+
+void Cargar(int vec[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Vec["<<i<<"]="<<endl;
+		cin>>vec[i];
+	}
+
+}
+void Mostrar(int vec[],int n)
+{
+for(int i=0;i<n;i++)
+	{
+		cout<<vec[i]<<" ";
+	}
+	
+}
+void BubbleSort(int vec[],int n)
+{ int temporal;
+  for(int i=0;i<n;i++)
+  {
+	for(int j=i+1;j<n;j++)
+	{
+		if(vec[j]>vec[i])
+		{
+			temporal=vec[i];
+			vec[i]=vec[j];
+			vec[j]=temporal;
+		}
+	}
+  }
+  
+
+}
