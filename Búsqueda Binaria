@@ -1,0 +1,63 @@
+#include "stdafx.h"
+#include<iostream>
+
+#define Max 50
+using namespace std;
+
+
+void Cargar(int vec[], int n);
+void Mostrar(int vec[],int n);
+void Busqueda_binaria(int vec[],int n, int x);
+
+
+int main() {
+	int vec1[Max],n1;
+	 int x;
+	cout<<"Ingrese el numero de elementos del vector 1"<<endl;
+	cin>>n1;
+	Cargar(vec1,n1);
+	cout<<"Ingrese el numero que desea buscar:";
+	cin>>x;
+
+	Busqueda_binaria(vec1,n1,x);
+
+	system("pause>null");
+	return 0;
+}
+
+void Cargar(int vec[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Vec["<<i<<"]=";
+		cin>>vec[i];
+	}
+
+}
+void Mostrar(int vec[],int n)
+{
+for(int i=0;i<n;i++)
+	{
+		cout<<vec[i]<<" ";
+	}
+}
+
+
+void Busqueda_binaria(int vec[],int n, int x)
+{
+int izq=1,der=n,cent;
+ bool bandera=false;
+ while((izq<=der)&&(bandera==false)){
+  cent=int(izq+der)/2;
+  if(x==vec[cent]){
+   bandera=true;
+  }else{
+   if(x>vec[cent]){izq=cent+1;}else{der=cent-1;}
+  }
+ }
+ if(bandera==true){cout<<"\nel elemento esta en la posicion: "<<cent<<"\n\n";}
+ else{cout<<"\nel elemento no se encuentra en el arreglo"<<"\n\n";}
+
+}
+
+ 
